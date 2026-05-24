@@ -1,0 +1,21 @@
+# dependencias
+node_modules/
+
+# compilación
+dist/
+
+# caché de Astro
+.astro/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# variables de entorno locales
+.env
+.env.*
+
+# archivos del sistema operativo
+.DS_Store
+Thumbs.db

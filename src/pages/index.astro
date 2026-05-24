@@ -1,0 +1,695 @@
+---
+// Código frontmatter de Astro. De momento no requerimos lógica en tiempo de compilación.
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis 15 Años - Eloísa Bosthó Trejo</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Playfair Display para títulos, Montserrat para lectura, Great Vibes para el nombre principal -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com" is:inline></script>
+    <script is:inline>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        crema: '#FFF6E8',   // Perla
+                        olivo: '#F7E7CE',   // Reutilizado como alias de champagne claro
+                        oro: '#D8B98A',     // Gold soft
+                        oscuro: '#0F0F0F',   // Fondo principal oscuro
+                        champagne: '#F7E7CE',
+                        goldSoft: '#D8B98A',
+                        pearl: '#FFF6E8',
+                        warmBeige: '#E6D2B5',
+                        darkBg: '#0F0F0F',
+                        bronzeBg: '#1C1813'
+                    },
+                    fontFamily: {
+                        playfair: ['"Playfair Display"', 'serif'],
+                        montserrat: ['"Montserrat"', 'sans-serif'],
+                        script: ['"Great Vibes"', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0F0F0F; }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(to bottom, #D8B98A, #E6D2B5); 
+            border-radius: 4px; 
+        }
+        
+        body {
+            background-color: #0F0F0F;
+            color: #E6D2B5;
+            overflow-x: hidden;
+        }
+
+        /* Degradado radial de fondo lujoso */
+        .bg-radial-luxury {
+            background: radial-gradient(circle, rgba(28, 24, 19, 0) 30%, rgba(15, 15, 15, 0.9) 80%);
+        }
+
+        /* Efecto de gradiente de champagne metálico para textos e íconos */
+        .text-metallic-champagne {
+            background: linear-gradient(
+                90deg,
+                #FFF6E8 0%,    /* Pearl */
+                #D8B98A 25%,   /* Gold soft */
+                #F7E7CE 50%,   /* Champagne */
+                #E6D2B5 75%,   /* Warm beige */
+                #FFF6E8 100%   /* Pearl */
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        /* Animación suave de barrido de brillo sobre el metal */
+        .metallic-shine-anim {
+            animation: shine-sweep 6s linear infinite;
+        }
+
+        @keyframes shine-sweep {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Retroiluminación / Glow elegante */
+        .glow-champagne {
+            filter: drop-shadow(0 0 6px rgba(247, 231, 206, 0.25)) drop-shadow(0 0 16px rgba(216, 185, 138, 0.15));
+        }
+
+        /* Animación discreta de pulsación luminosa / sparkles */
+        .sparkling-icon {
+            animation: sparkle-pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes sparkle-pulse {
+            0%, 100% {
+                opacity: 0.85;
+                filter: drop-shadow(0 0 2px rgba(255, 246, 232, 0.4)) brightness(1);
+            }
+            50% {
+                opacity: 1;
+                filter: drop-shadow(0 0 10px rgba(247, 231, 206, 0.85)) brightness(1.25);
+            }
+        }
+
+        /* Glass Cards oscuras de super-lujo */
+        .glass-card {
+            background: rgba(22, 20, 18, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(216, 185, 138, 0.18);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.7),
+                inset 0 1px 1px rgba(255, 246, 232, 0.05);
+        }
+
+        /* Botón de Placa Metálica Pulida */
+        .btn-metallic {
+            background: linear-gradient(135deg, #D8B98A 0%, #E6D2B5 50%, #F7E7CE 100%);
+            color: #0F0F0F !important;
+            font-weight: 600;
+            border: 1px solid rgba(255, 246, 232, 0.25);
+            box-shadow: 
+                0 4px 15px rgba(216, 185, 138, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.45);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-metallic::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: skewX(-25deg);
+            transition: none;
+        }
+
+        .btn-metallic:hover::before {
+            left: 150%;
+            transition: all 1s ease-in-out;
+        }
+
+        .btn-metallic:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 25px rgba(247, 231, 206, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        /* Controles de música discretos */
+        .glass-music {
+            background: rgba(15, 15, 15, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(216, 185, 138, 0.4);
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.6),
+                inset 0 1px 1px rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .pulse-ring-music {
+            animation: pulse-ring-subtle 2.5s infinite;
+        }
+
+        @keyframes pulse-ring-subtle {
+            0% { box-shadow: 0 0 0 0 rgba(216, 185, 138, 0.45); }
+            70% { box-shadow: 0 0 0 10px rgba(216, 185, 138, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(216, 185, 138, 0); }
+        }
+
+        /* Botón WhatsApp de Lujo Verde Esmeralda Metálico */
+        .btn-whatsapp-luxury {
+            background: linear-gradient(135deg, #128C7E 0%, #0D3B22 100%);
+            color: #FFF6E8 !important;
+            border: 1px solid rgba(37, 211, 102, 0.25);
+            box-shadow: 
+                0 4px 15px rgba(18, 140, 126, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-whatsapp-luxury:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 25px rgba(37, 211, 102, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        /* Countdown numbers styling */
+        .countdown-number {
+            background: linear-gradient(135deg, #FFF6E8 0%, #D8B98A 50%, #E6D2B5 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+        }
+
+        /* Pantalla de Bienvenida (Sobre digital / Portada) */
+        #welcomeScreen {
+            position: fixed;
+            inset: 0;
+            background-color: #0F0F0F;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 1.2s;
+        }
+        
+        .welcome-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* Evitar scroll antes de abrir */
+        .no-scroll {
+            overflow: hidden !important;
+        }
+    </style>
+</head>
+<body class="font-montserrat antialiased selection:bg-oro/30 selection:text-pearl bg-darkBg text-warmBeige no-scroll">
+
+    <!-- Canvas para Partículas de Brillo Champagne -->
+    <canvas id="particlesCanvas" class="fixed inset-0 w-full h-full pointer-events-none -z-30"></canvas>
+
+    <!-- Pantalla de Bienvenida para Desbloquear Audio -->
+    <div id="welcomeScreen">
+        <div class="flex flex-col items-center justify-center w-full px-6 max-w-md mx-auto h-[100dvh]">
+            <p class="font-playfair tracking-[0.3em] md:tracking-[0.4em] uppercase text-sm md:text-lg mb-3 text-metallic-champagne metallic-shine-anim font-semibold" data-aos="fade-down" data-aos-duration="1600">Mis XV Años</p>
+            <h1 class="font-script text-6xl sm:text-7xl md:text-8xl mb-6 text-metallic-champagne metallic-shine-anim glow-champagne font-normal leading-relaxed py-4 shrink-0 sparkling-icon" data-aos="zoom-in" data-aos-duration="1800" data-aos-delay="250">Eloísa</h1>
+            <p class="font-montserrat text-crema/85 text-sm md:text-base mb-8 max-w-[320px] sm:max-w-md mx-auto leading-relaxed text-center italic" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="500">
+                "Hay fechas que se graban en el corazón y momentos que se vuelven eternos al compartirse con quienes más amamos. Acompáñame a escribir el inicio de esta nueva historia."
+            </p>
+            <div class="w-full flex justify-center items-center mt-2 shrink-0" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="750">
+                <button id="btnOpen" class="flex items-center justify-center gap-3 px-8 md:px-12 btn-metallic py-4 rounded-full font-semibold tracking-widest uppercase text-xs md:text-sm shadow-xl active:scale-95 transition-transform duration-300">
+                    <i class="fas fa-envelope-open text-lg"></i> Abrir Invitación
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Element (Intentando autoplay) -->
+    <!-- Nota: Los navegadores modernos bloquean el autoplay de audio con sonido si no hay interacción previa del usuario. -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="assets/sound/sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Floating Music Button -->
+    <button id="musicToggle" class="fixed bottom-6 right-6 z-50 w-12 h-12 glass-music rounded-full flex items-center justify-center text-lg shadow-2xl transition-all duration-300 hover:scale-105 focus:outline-none opacity-75 hover:opacity-100">
+        <i id="musicIcon" class="fas fa-play pl-0.5 text-metallic-champagne sparkling-icon"></i>
+    </button>
+
+    <!-- Hero Section -->
+    <header class="relative w-full h-[100dvh] min-h-[500px] flex flex-col items-center justify-center text-center text-crema px-6 overflow-hidden">
+        <!-- iOS Fix para imagen de fondo (bypass de background-attachment: fixed) -->
+        <div class="absolute inset-0 w-full h-full -z-20 pointer-events-none">
+            <!-- Utilizamos fixed sobre la imagen directamente para simular el parallax sin romper Webkit iOS -->
+            <img src="assets/img/15.png" alt="Alejandra 15" class="w-full h-full object-cover object-center sm:fixed sm:inset-0 opacity-45">
+        </div>
+        
+        <!-- Gradientes para asegurar lectura del texto -->
+        <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-black/55 to-black/75 -z-10 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-radial-luxury -z-10 pointer-events-none"></div>
+        
+        <div class="relative z-10 flex flex-col items-center mt-auto mb-auto">
+            <p class="font-playfair tracking-[0.35em] uppercase text-sm md:text-lg mb-6 text-metallic-champagne metallic-shine-anim font-semibold drop-shadow-md" data-aos="fade-down" data-aos-duration="1600" data-aos-delay="100">Mis XV Años</p>
+            <h1 class="font-script text-7xl md:text-9xl mb-4 font-normal tracking-wide text-metallic-champagne metallic-shine-anim glow-champagne py-4 drop-shadow-lg" data-aos="zoom-in" data-aos-duration="1800" data-aos-delay="300">Eloísa</h1>
+            <div class="w-32 h-[1px] bg-gradient-to-r from-transparent via-oro to-transparent my-6" data-aos="stretch-width" data-aos-duration="1400" data-aos-delay="500"></div>
+            <p class="font-montserrat tracking-[0.2em] font-light text-base md:text-xl uppercase text-pearl/90 drop-shadow-md" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="650">20 de Junio de 2026</p>
+        </div>
+        
+        <div class="absolute bottom-10 z-10 animate-bounce">
+            <i class="fas fa-chevron-down text-metallic-champagne sparkling-icon text-2xl opacity-75"></i>
+        </div>
+    </header>
+
+    <!-- Narrative Section -->
+    <section class="py-24 px-6 md:px-20 text-center max-w-4xl mx-auto" data-aos="fade-up">
+        <i class="fas fa-leaf text-metallic-champagne sparkling-icon text-3xl mb-8"></i>
+        <p class="font-playfair italic text-2xl md:text-3xl text-crema/90 leading-relaxed font-light">
+            "Hace quince años la vida nos regaló el don de ver nacer a una hermosa niña... <br class="hidden md:block">
+            Hoy, con el corazón lleno de gratitud, celebramos con inmensa alegría los XV años y los sueños de Eloísa."
+        </p>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="py-16 bg-bronzeBg/40 relative border-y border-oro/10" data-aos="fade-up">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-playfair text-3xl md:text-4xl text-center text-metallic-champagne metallic-shine-anim mb-12">Faltan</h2>
+            
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                <!-- Days -->
+                <div class="flex flex-col items-center justify-center glass-card w-20 h-24 md:w-32 md:h-32 rounded-2xl" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1200">
+                    <span id="days" class="font-playfair font-bold text-3xl md:text-5xl countdown-number">00</span>
+                    <span class="text-xs md:text-sm font-medium tracking-widest uppercase text-pearl/60 mt-2">Días</span>
+                </div>
+                <!-- Hours -->
+                <div class="flex flex-col items-center justify-center glass-card w-20 h-24 md:w-32 md:h-32 rounded-2xl" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1200">
+                    <span id="hours" class="font-playfair font-bold text-3xl md:text-5xl countdown-number">00</span>
+                    <span class="text-xs md:text-sm font-medium tracking-widest uppercase text-pearl/60 mt-2">Hrs</span>
+                </div>
+                <!-- Minutes -->
+                <div class="flex flex-col items-center justify-center glass-card w-20 h-24 md:w-32 md:h-32 rounded-2xl" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">
+                    <span id="minutes" class="font-playfair font-bold text-3xl md:text-5xl countdown-number">00</span>
+                    <span class="text-xs md:text-sm font-medium tracking-widest uppercase text-pearl/60 mt-2">Min</span>
+                </div>
+                <!-- Seconds -->
+                <div class="flex flex-col items-center justify-center glass-card w-20 h-24 md:w-32 md:h-32 rounded-2xl" data-aos="fade-up" data-aos-delay="450" data-aos-duration="1200">
+                    <span id="seconds" class="font-playfair font-bold text-3xl md:text-5xl countdown-number">00</span>
+                    <span class="text-xs md:text-sm font-medium tracking-widest uppercase text-pearl/60 mt-2">Seg</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Family Section -->
+    <section class="py-24 px-6 max-w-5xl mx-auto" data-aos="fade-up">
+        <div class="text-center mb-16">
+            <i class="fas fa-hands-holding-circle text-metallic-champagne sparkling-icon text-4xl mb-6"></i>
+            <h2 class="font-playfair text-3xl md:text-4xl text-metallic-champagne metallic-shine-anim mb-4">Con la bendición de Dios y mis padres</h2>
+            <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-oro/50 to-transparent mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 text-center">
+            <!-- Padres -->
+            <div class="glass-card p-10 rounded-3xl" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1400">
+                <h3 class="font-montserrat tracking-[0.2em] text-sm uppercase text-metallic-champagne metallic-shine-anim font-bold mb-6">Mis Padres</h3>
+                <p class="font-playfair text-2xl text-pearl mb-2">Iván Bostho Nogal</p>
+                <p class="font-playfair text-2xl text-pearl">Martha Lilia Trejo Juárez</p>
+            </div>
+            
+            <!-- Padrinos -->
+            <div class="glass-card p-10 rounded-3xl" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1400">
+                <h3 class="font-montserrat tracking-[0.2em] text-sm uppercase text-metallic-champagne metallic-shine-anim font-bold mb-6">Mis Padrinos</h3>
+                <p class="font-playfair text-2xl text-pearl mb-2">Vicente Salinas Hernández</p>
+                <p class="font-playfair text-2xl text-pearl">María Guadalupe Prior Ibarra</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logistics Section -->
+    <section class="py-24 px-6 bg-bronzeBg/40 border-y border-oro/10">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-playfair text-3xl md:text-4xl text-metallic-champagne metallic-shine-anim mb-4">Dónde y Cuándo</h2>
+                <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-oro/50 to-transparent mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Ceremonia -->
+                <div class="glass-card p-10 rounded-3xl text-center flex flex-col items-center justify-between shadow-2xl" data-aos="fade-right">
+                    <div class="w-20 h-20 rounded-full bg-darkBg border border-oro/30 flex items-center justify-center mb-6 shadow-md">
+                        <i class="fas fa-church text-3xl text-metallic-champagne sparkling-icon"></i>
+                    </div>
+                    <h3 class="font-playfair text-3xl text-pearl mb-2">Ceremonia Religiosa</h3>
+                    <p class="font-montserrat font-bold text-metallic-champagne metallic-shine-anim tracking-wider mb-4 text-lg">4:00 p.m.</p>
+                    <p class="text-crema/80 mb-8 leading-relaxed">
+                        Parroquia Santiago Apóstol
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 w-full mt-auto">
+                        <a href="https://maps.app.goo.gl/vc7M43dbE8d1qybY8" target="_blank" class="flex-1 btn-metallic py-3 rounded-xl flex items-center justify-center gap-2 font-semibold tracking-wider uppercase text-xs">
+                            <i class="fas fa-map-marker-alt text-base"></i> Google Maps
+                        </a>
+                        <a href="https://waze.com/ul?q=Parroquia+Santiago+Apostol+San+Juan+del+Rio&navigate=yes" target="_blank" class="flex-1 btn-metallic py-3 rounded-xl flex items-center justify-center gap-2 font-semibold tracking-wider uppercase text-xs">
+                            <i class="fab fa-waze text-base"></i> Waze
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recepcion -->
+                <div class="glass-card p-10 rounded-3xl text-center flex flex-col items-center justify-between shadow-2xl" data-aos="fade-left">
+                    <div class="w-20 h-20 rounded-full bg-darkBg border border-oro/30 flex items-center justify-center mb-6 shadow-md">
+                        <i class="fas fa-glass-cheers text-3xl text-metallic-champagne sparkling-icon"></i>
+                    </div>
+                    <h3 class="font-playfair text-3xl text-pearl mb-2">Recepción</h3>
+                    <p class="font-montserrat font-bold text-metallic-champagne metallic-shine-anim tracking-wider mb-4 text-lg">6:00 p.m.</p>
+                    <p class="text-crema/80 mb-8 leading-relaxed">
+                        Salón Real Ilusión
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 w-full mt-auto">
+                        <a href="https://maps.app.goo.gl/LqSAzNoM32YRoPNh9" target="_blank" class="flex-1 btn-metallic py-3 rounded-xl flex items-center justify-center gap-2 font-semibold tracking-wider uppercase text-xs">
+                            <i class="fas fa-map-marker-alt text-base"></i> Google Maps
+                        </a>
+                        <a href="https://waze.com/ul?q=Salon+Real+Ilusion+San+Juan+del+Rio&navigate=yes" target="_blank" class="flex-1 btn-metallic py-3 rounded-xl flex items-center justify-center gap-2 font-semibold tracking-wider uppercase text-xs">
+                            <i class="fab fa-waze text-base"></i> Waze
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extra Info Section -->
+    <section class="py-24 px-6 max-w-4xl mx-auto text-center" data-aos="fade-up">
+        <h2 class="font-playfair text-3xl md:text-4xl text-metallic-champagne metallic-shine-anim mb-12">Detalles Importantes</h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Dresscode -->
+            <div class="flex flex-col items-center glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1300">
+                <i class="fas fa-user-tie text-3xl text-metallic-champagne sparkling-icon mb-4"></i>
+                <h4 class="font-montserrat font-bold uppercase tracking-wider text-sm mb-2 text-pearl">Código de Vestimenta</h4>
+                <p class="text-crema/70">Formal</p>
+            </div>
+            
+            <!-- Niños -->
+            <div class="flex flex-col items-center glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1300">
+                <i class="fas fa-child text-3xl text-metallic-champagne sparkling-icon mb-4"></i>
+                <h4 class="font-montserrat font-bold uppercase tracking-wider text-sm mb-2 text-pearl">Niños</h4>
+                <p class="text-crema/70">Sí permitidos</p>
+            </div>
+            
+            <!-- Regalo -->
+            <div class="flex flex-col items-center glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1300">
+                <i class="fas fa-envelope-open-text text-3xl text-metallic-champagne sparkling-icon mb-4"></i>
+                <h4 class="font-montserrat font-bold uppercase tracking-wider text-sm mb-2 text-pearl">Lluvia de Sobres</h4>
+                <p class="text-crema/70 text-sm">El mejor regalo es tu presencia, pero si deseas tener un detalle conmigo, habrá un buzón en la recepción.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp RSVP Section -->
+    <section class="py-24 px-6 relative" data-aos="fade-up">
+        <div class="max-w-3xl mx-auto glass-card p-10 md:p-16 rounded-3xl text-center border-t-4 border-t-oro/60">
+            <i class="fab fa-whatsapp text-5xl text-metallic-champagne sparkling-icon mb-6 animate-pulse"></i>
+            <h2 class="font-playfair text-3xl md:text-4xl text-metallic-champagne metallic-shine-anim mb-4">Confirmación de Asistencia</h2>
+            <p class="font-montserrat text-crema/80 mb-8 max-w-lg mx-auto leading-relaxed">
+                Por favor, da clic en el botón de abajo para enviarme un mensaje por WhatsApp y poder confirmar tu valiosa asistencia.
+            </p>
+            
+            <!-- Link a WhatsApp: Cambia el '1234567890' por el número real con código de país (ej. 521234567890) -->
+            <a href="https://wa.me/1234567890?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20años%20de%20Eloísa.%20🍾✨" 
+               target="_blank" 
+               class="inline-flex items-center justify-center gap-3 btn-whatsapp-luxury px-8 py-4 rounded-full font-bold tracking-wider hover:scale-105 active:scale-95 transition-transform duration-300 shadow-xl">
+                <i class="fab fa-whatsapp text-2xl"></i>
+                CONFIRMAR ASISTENCIA
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darkBg text-crema py-16 text-center border-t border-oro/10" data-aos="fade-up">
+        <h2 class="font-script text-6xl mb-4 text-metallic-champagne metallic-shine-anim font-normal py-2">Eloísa</h2>
+        <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-oro/30 to-transparent mx-auto my-6"></div>
+        <p class="font-montserrat tracking-[0.2em] font-light text-sm opacity-90 uppercase text-pearl">¡Te espero para celebrar!</p>
+    </footer>
+
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" is:inline></script>
+    
+    <script is:inline>
+        // Forzar que siempre inicie arriba al cargar/recargar la página
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo(0, 0);
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            window.scrollTo(0, 0);
+        });
+
+        // Inicializar AOS (Animaciones al hacer scroll) con efectos fluidos y de lujo
+        AOS.init({
+            duration: 1500,
+            once: true,
+            offset: 120,
+            easing: 'ease-out-quint',
+            delay: 50
+        });
+
+        // -------------------------
+        // LÓGICA DE AUDIO (Autoplay & Botón)
+        // -------------------------
+        const audio = document.getElementById('bgMusic');
+        const toggleBtn = document.getElementById('musicToggle');
+        const icon = document.getElementById('musicIcon');
+        
+        let isPlaying = false;
+        let fadeInterval;
+
+        audio.volume = 0; // Iniciar en 0 para el fade in
+
+        // Función central para reproducir
+        const playMusic = () => {
+            if (isPlaying) return; // Si ya está sonando, no hacer nada
+
+            audio.play().then(() => {
+                isPlaying = true;
+                icon.classList.remove('fa-play', 'pl-0.5');
+                icon.classList.add('fa-pause');
+                toggleBtn.classList.add('pulse-ring-music');
+                
+                let vol = 0;
+                clearInterval(fadeInterval);
+                audio.volume = 0;
+                
+                // Fade-in de 0 a 0.2 (20% de volumen para música de fondo suave)
+                fadeInterval = setInterval(() => {
+                    if (vol < 0.2) {
+                        vol += 0.01;
+                        audio.volume = Math.min(vol, 0.2);
+                    } else {
+                        clearInterval(fadeInterval);
+                    }
+                }, 50);
+                
+                // Remover listeners globales una vez que logró reproducirse
+                document.body.removeEventListener('click', playMusicAnywhere);
+                document.body.removeEventListener('touchstart', playMusicAnywhere);
+                
+            }).catch(error => {
+                console.log("Autoplay bloqueado. Esperando interacción.");
+            });
+        };
+
+        // Función para pausar
+        const pauseMusic = () => {
+            if (!isPlaying) return;
+            audio.pause();
+            isPlaying = false;
+            icon.classList.remove('fa-pause');
+            icon.classList.add('fa-play', 'pl-0.5');
+            toggleBtn.classList.remove('pulse-ring-music');
+        };
+
+        // Listener del botón flotante
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evitar que dispare el listener del body
+            if (isPlaying) {
+                pauseMusic();
+            } else {
+                playMusic();
+            }
+        });
+
+        // Wrapper para el evento en cualquier parte del body
+        const playMusicAnywhere = () => {
+            if (!isPlaying) {
+                playMusic();
+            }
+        };
+
+        // Escuchar el botón de "Abrir Invitación" para desbloquear audio y mostrar página
+        const welcomeScreen = document.getElementById('welcomeScreen');
+        const btnOpen = document.getElementById('btnOpen');
+        
+        btnOpen.addEventListener('click', () => {
+            // 1. Quitar el bloqueo de scroll
+            document.body.classList.remove('no-scroll');
+            // 2. Desvanecer la pantalla de bienvenida
+            welcomeScreen.classList.add('welcome-hidden');
+            // 3. Comenzar la música (con fade in de 50%)
+            playMusic();
+        });
+
+        // Fecha objetivo: 20 de Junio de 2026 a las 00:00:00
+        const countDownDate = new Date("June 20, 2026 00:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Formatear a 2 dígitos
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+
+        }, 1000);
+
+        // -------------------------
+        // PARTÍCULAS DE BRILLO CHAMPAGNE DE FONDO
+        // -------------------------
+        const canvas = document.getElementById('particlesCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const particles = [];
+        const maxParticles = 40; // Cantidad sutil para no saturar
+
+        const particleColors = [
+            'rgba(247, 231, 206, 0.45)', // Champagne
+            'rgba(216, 185, 138, 0.35)', // Gold Soft
+            'rgba(255, 246, 232, 0.5)'   // Pearl
+        ];
+
+        class Particle {
+            constructor() {
+                this.reset();
+                this.y = Math.random() * height; // Distribución inicial vertical
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = height + 10;
+                this.size = Math.random() * 2 + 0.5; // Partículas muy finas
+                this.speed = Math.random() * 0.35 + 0.15; // Flotación lenta
+                this.color = particleColors[Math.floor(Math.random() * particleColors.length)];
+                this.opacity = Math.random() * 0.5 + 0.2;
+                this.fadeSpeed = Math.random() * 0.008 + 0.002;
+                this.fadeDirection = Math.random() > 0.5 ? 1 : -1;
+            }
+
+            update() {
+                this.y -= this.speed;
+                
+                // Centelleo suave (twinkle)
+                this.opacity += this.fadeSpeed * this.fadeDirection;
+                if (this.opacity >= 0.75) {
+                    this.fadeDirection = -1;
+                } else if (this.opacity <= 0.15) {
+                    this.fadeDirection = 1;
+                }
+
+                // Salirse de la pantalla
+                if (this.y < -10) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color.replace(/[\d\.]+\)$/, `${this.opacity})`);
+                ctx.fill();
+            }
+        }
+
+        // Inicializar partículas
+        for (let i = 0; i < maxParticles; i++) {
+            particles.push(new Particle());
+        }
+
+        // Bucle de animación
+        function animateParticles() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        animateParticles();
+    </script>
+</body>
+</html>
