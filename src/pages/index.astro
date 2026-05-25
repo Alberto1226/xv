@@ -243,6 +243,176 @@
         .no-scroll {
             overflow: hidden !important;
         }
+
+        /* --- NUEVOS EFECTOS PREMIUM --- */
+
+        /* Estilos del Sobre Adaptables */
+        :root {
+            --env-width: 290px;
+            --env-height: 195px;
+        }
+        @media (min-width: 640px) {
+            :root {
+                --env-width: 350px;
+                --env-height: 230px;
+            }
+        }
+        .envelope-wrapper {
+            position: relative;
+            width: var(--env-width);
+            height: var(--env-height);
+            background: rgba(22, 19, 16, 0.95);
+            border: 1px solid rgba(216, 185, 138, 0.25);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+            perspective: 800px;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+        .envelope-wrapper:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: rgba(216, 185, 138, 0.45);
+        }
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: calc(var(--env-width) / 2) solid transparent;
+            border-right: calc(var(--env-width) / 2) solid transparent;
+            border-top: calc(var(--env-height) / 2 + 5px) solid rgba(34, 29, 23, 0.98);
+            transform-origin: top;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.3s;
+            z-index: 3;
+            filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5));
+        }
+        .envelope-flap.open {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+        .envelope-pocket {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(150deg, #1f1b16 0%, #110f0d 100%);
+            border-radius: 0 0 6px 6px;
+            z-index: 2;
+            overflow: hidden;
+            border-top: 1px solid rgba(216, 185, 138, 0.15);
+        }
+        .envelope-pocket::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: calc(var(--env-width) / 2) solid transparent;
+            border-right: calc(var(--env-width) / 2) solid transparent;
+            border-bottom: calc(var(--env-height) / 2 + 5px) solid rgba(28, 24, 19, 0.95);
+        }
+        .envelope-letter {
+            position: absolute;
+            bottom: 10px;
+            left: 5%;
+            width: 90%;
+            height: 85%;
+            background: linear-gradient(135deg, #1c1813 0%, #12100e 100%);
+            border: 1px solid rgba(216, 185, 138, 0.25);
+            border-radius: 4px;
+            z-index: 2;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-in-out;
+            padding: 1rem;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .envelope-letter.pull-out {
+            transform: translateY(-55%) scale(1.04);
+            z-index: 4;
+        }
+        /* Sello de lacre */
+        .wax-seal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 55px;
+            height: 55px;
+            background: radial-gradient(circle, #D8B98A 0%, #a67c43 85%, #735124 100%);
+            border-radius: 50%;
+            transform: translate(-50%, -40%);
+            z-index: 4;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+        }
+        .wax-seal::after {
+            content: 'E';
+            font-family: 'Great Vibes', cursive;
+            font-size: 26px;
+            color: #241c0e;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);
+        }
+        .wax-seal:hover {
+            transform: translate(-50%, -40%) scale(1.1);
+        }
+        .wax-seal.broken {
+            transform: translate(-50%, -40%) scale(0) rotate(180deg);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* 3D Tilt Shine effect on Glass Cards */
+        .glass-card {
+            position: relative;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        .card-shine {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            border-radius: inherit;
+            z-index: 5;
+            background: transparent;
+            transition: background 0.15s ease;
+        }
+
+        /* Animación SVG para los ornamentos */
+        .draw-path {
+            stroke-dasharray: 600;
+            stroke-dashoffset: 600;
+            transition: stroke-dashoffset 2.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .draw-path.animated {
+            stroke-dashoffset: 0;
+        }
+
+        /* Ken Burns zoom lento en portada */
+        .animate-kenburns {
+            animation: kenburns 35s ease-in-out infinite;
+        }
+        @keyframes kenburns {
+            0% {
+                transform: scale(1) translate(0px, 0px);
+            }
+            50% {
+                transform: scale(1.12) translate(-10px, -5px);
+            }
+            100% {
+                transform: scale(1) translate(0px, 0px);
+            }
+        }
     </style>
 </head>
 <body class="font-montserrat antialiased selection:bg-oro/30 selection:text-pearl bg-darkBg text-warmBeige no-scroll">
@@ -252,13 +422,33 @@
 
     <!-- Pantalla de Bienvenida para Desbloquear Audio -->
     <div id="welcomeScreen">
-        <div class="flex flex-col items-center justify-center w-full px-6 max-w-md mx-auto h-[100dvh]">
-            <p class="font-playfair tracking-[0.3em] md:tracking-[0.4em] uppercase text-sm md:text-lg mb-3 text-metallic-champagne metallic-shine-anim font-semibold" data-aos="fade-down" data-aos-duration="1600">Mis XV Años</p>
-            <h1 class="font-script text-6xl sm:text-7xl md:text-8xl mb-6 text-metallic-champagne metallic-shine-anim glow-champagne font-normal leading-relaxed py-4 shrink-0 sparkling-icon" data-aos="zoom-in" data-aos-duration="1800" data-aos-delay="250">Eloísa</h1>
-            <p class="font-montserrat text-crema/85 text-sm md:text-base mb-8 max-w-[320px] sm:max-w-md mx-auto leading-relaxed text-center italic" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="500">
-                "Hay fechas que se graban en el corazón y momentos que se vuelven eternos al compartirse con quienes más amamos. Acompáñame a escribir el inicio de esta nueva historia."
-            </p>
-            <div class="w-full flex justify-center items-center mt-2 shrink-0" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="750">
+        <div class="flex flex-col items-center justify-center w-full px-6 max-w-lg mx-auto h-[100dvh] relative z-10">
+            <!-- Encabezado de Bienvenida -->
+            <div id="welcomeHeader" class="text-center mb-6 transition-all duration-700">
+                <p class="font-playfair tracking-[0.3em] md:tracking-[0.4em] uppercase text-sm md:text-lg mb-2 text-metallic-champagne metallic-shine-anim font-semibold" data-aos="fade-down" data-aos-duration="1600" style="display: block;">Mis XV Años</p>
+                <h1 class="font-script text-6xl sm:text-7xl md:text-8xl mb-3 text-metallic-champagne metallic-shine-anim glow-champagne font-normal leading-relaxed py-2 sparkling-icon" data-aos="zoom-in" data-aos-duration="1800" data-aos-delay="250" style="display: block;">Eloísa</h1>
+                <p class="font-montserrat text-crema/85 text-xs sm:text-sm mb-4 max-w-[320px] sm:max-w-md mx-auto leading-relaxed text-center italic" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="500">
+                    "Hay fechas que se graban en el corazón y momentos que se vuelven eternos al compartirse con quienes más amamos."
+                </p>
+            </div>
+
+            <!-- Estructura del Sobre Digital -->
+            <div id="envelopeWrapper" class="envelope-wrapper" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="600">
+                <!-- Solapa del sobre -->
+                <div id="envelopeFlap" class="envelope-flap"></div>
+                <!-- Bolsillo del sobre -->
+                <div class="envelope-pocket"></div>
+                <!-- Carta dentro del sobre -->
+                <div id="envelopeLetter" class="envelope-letter">
+                    <p class="font-montserrat text-[10px] tracking-[0.2em] uppercase text-pearl/80 text-center">Te invita a celebrar los</p>
+                    <p class="font-playfair text-xs tracking-[0.3em] text-oro mt-1 font-bold">XV AÑOS DE</p>
+                    <p class="font-script text-4xl text-metallic-champagne mt-2 sparkling-icon">Eloísa</p>
+                </div>
+                <!-- Sello de lacre que funciona como botón de interacción -->
+                <div id="waxSeal" class="wax-seal"></div>
+            </div>
+
+            <div id="openBtnContainer" class="w-full flex justify-center items-center mt-2 shrink-0 transition-all duration-700" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="800">
                 <button id="btnOpen" class="flex items-center justify-center gap-3 px-8 md:px-12 btn-metallic py-4 rounded-full font-semibold tracking-widest uppercase text-xs md:text-sm shadow-xl active:scale-95 transition-transform duration-300">
                     <i class="fas fa-envelope-open text-lg"></i> Abrir Invitación
                 </button>
@@ -280,9 +470,9 @@
     <!-- Hero Section -->
     <header class="relative w-full h-[100dvh] min-h-[500px] flex flex-col items-center justify-center text-center text-crema px-6 overflow-hidden">
         <!-- iOS Fix para imagen de fondo (bypass de background-attachment: fixed) -->
-        <div class="absolute inset-0 w-full h-full -z-20 pointer-events-none">
+        <div class="absolute inset-0 w-full h-full -z-20 pointer-events-none overflow-hidden">
             <!-- Utilizamos fixed sobre la imagen directamente para simular el parallax sin romper Webkit iOS -->
-            <img src="assets/img/15.png" alt="Alejandra 15" class="w-full h-full object-cover object-center sm:fixed sm:inset-0 opacity-45">
+            <img src="assets/img/15.png" alt="Alejandra 15" class="w-full h-full object-cover object-center sm:fixed sm:inset-0 opacity-45 animate-kenburns">
         </div>
         
         <!-- Gradientes para asegurar lectura del texto -->
@@ -290,9 +480,23 @@
         <div class="absolute inset-0 bg-radial-luxury -z-10 pointer-events-none"></div>
         
         <div class="relative z-10 flex flex-col items-center mt-auto mb-auto">
-            <p class="font-playfair tracking-[0.35em] uppercase text-sm md:text-lg mb-6 text-metallic-champagne metallic-shine-anim font-semibold drop-shadow-md" data-aos="fade-down" data-aos-duration="1600" data-aos-delay="100">Mis XV Años</p>
-            <h1 class="font-script text-7xl md:text-9xl mb-4 font-normal tracking-wide text-metallic-champagne metallic-shine-anim glow-champagne py-4 drop-shadow-lg" data-aos="zoom-in" data-aos-duration="1800" data-aos-delay="300">Eloísa</h1>
-            <div class="w-32 h-[1px] bg-gradient-to-r from-transparent via-oro to-transparent my-6" data-aos="stretch-width" data-aos-duration="1400" data-aos-delay="500"></div>
+            <p class="font-playfair tracking-[0.35em] uppercase text-sm md:text-lg mb-6 text-metallic-champagne metallic-shine-anim font-semibold drop-shadow-md" data-aos="fade-down" data-aos-duration="1600" data-aos-delay="100" style="display: block;">Mis XV Años</p>
+            <h1 class="font-script text-7xl md:text-9xl mb-4 font-normal tracking-wide text-metallic-champagne metallic-shine-anim glow-champagne py-4 drop-shadow-lg" data-aos="zoom-in" data-aos-duration="1800" data-aos-delay="300" style="display: block;">Eloísa</h1>
+            <!-- Divisor Ornamental SVG en Hero -->
+            <div class="w-full max-w-[200px]" data-aos="zoom-in" data-aos-duration="1400" data-aos-delay="500">
+                <svg class="ornament-svg mx-auto my-6" width="200" height="24" viewBox="0 0 200 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="draw-path" d="M10 12 H90 M190 12 H110 M100 4 L104 12 L100 20 L96 12 Z M75 12 C80 6, 90 6, 95 12 M125 12 C120 6, 110 6, 105 12" stroke="url(#goldGradientHero)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="goldGradientHero" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#D8B98A" stop-opacity="0"/>
+                            <stop offset="0.3" stop-color="#D8B98A" stop-opacity="1"/>
+                            <stop offset="0.5" stop-color="#FFF6E8" stop-opacity="1"/>
+                            <stop offset="0.7" stop-color="#D8B98A" stop-opacity="1"/>
+                            <stop offset="1" stop-color="#D8B98A" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
             <p class="font-montserrat tracking-[0.2em] font-light text-base md:text-xl uppercase text-pearl/90 drop-shadow-md" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="650">20 de Junio de 2026</p>
         </div>
         
@@ -345,7 +549,19 @@
         <div class="text-center mb-16">
             <i class="fas fa-hands-holding-circle text-metallic-champagne sparkling-icon text-4xl mb-6"></i>
             <h2 class="font-playfair text-3xl md:text-4xl text-metallic-champagne metallic-shine-anim mb-4">Con la bendición de Dios y mis padres</h2>
-            <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-oro/50 to-transparent mx-auto"></div>
+            <!-- Divisor Ornamental SVG en Sección Familia -->
+            <svg class="ornament-svg mx-auto my-4" width="200" height="24" viewBox="0 0 200 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="draw-path" d="M10 12 H90 M190 12 H110 M100 4 L104 12 L100 20 L96 12 Z M75 12 C80 6, 90 6, 95 12 M125 12 C120 6, 110 6, 105 12" stroke="url(#goldGradientFamily)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                    <linearGradient id="goldGradientFamily" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#D8B98A" stop-opacity="0"/>
+                        <stop offset="0.3" stop-color="#D8B98A" stop-opacity="1"/>
+                        <stop offset="0.5" stop-color="#FFF6E8" stop-opacity="1"/>
+                        <stop offset="0.7" stop-color="#D8B98A" stop-opacity="1"/>
+                        <stop offset="1" stop-color="#D8B98A" stop-opacity="0"/>
+                    </linearGradient>
+                </defs>
+            </svg>
         </div>
 
         <div class="grid md:grid-cols-2 gap-12 text-center">
@@ -370,7 +586,19 @@
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="font-playfair text-3xl md:text-4xl text-metallic-champagne metallic-shine-anim mb-4">Dónde y Cuándo</h2>
-                <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-oro/50 to-transparent mx-auto"></div>
+                <!-- Divisor Ornamental SVG en Sección Logística -->
+                <svg class="ornament-svg mx-auto my-4" width="200" height="24" viewBox="0 0 200 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="draw-path" d="M10 12 H90 M190 12 H110 M100 4 L104 12 L100 20 L96 12 Z M75 12 C80 6, 90 6, 95 12 M125 12 C120 6, 110 6, 105 12" stroke="url(#goldGradientLogistics)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="goldGradientLogistics" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#D8B98A" stop-opacity="0"/>
+                            <stop offset="0.3" stop-color="#D8B98A" stop-opacity="1"/>
+                            <stop offset="0.5" stop-color="#FFF6E8" stop-opacity="1"/>
+                            <stop offset="0.7" stop-color="#D8B98A" stop-opacity="1"/>
+                            <stop offset="1" stop-color="#D8B98A" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
             </div>
 
             <div class="grid md:grid-cols-2 gap-10">
@@ -468,7 +696,19 @@
     <!-- Footer -->
     <footer class="bg-darkBg text-crema py-16 text-center border-t border-oro/10" data-aos="fade-up">
         <h2 class="font-script text-6xl mb-4 text-metallic-champagne metallic-shine-anim font-normal py-2">Eloísa</h2>
-        <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-oro/30 to-transparent mx-auto my-6"></div>
+        <!-- Divisor Ornamental SVG en Footer -->
+        <svg class="ornament-svg mx-auto my-6" width="200" height="24" viewBox="0 0 200 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="draw-path" d="M10 12 H90 M190 12 H110 M100 4 L104 12 L100 20 L96 12 Z M75 12 C80 6, 90 6, 95 12 M125 12 C120 6, 110 6, 105 12" stroke="url(#goldGradientFooter)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+                <linearGradient id="goldGradientFooter" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#D8B98A" stop-opacity="0"/>
+                    <stop offset="0.3" stop-color="#D8B98A" stop-opacity="1"/>
+                    <stop offset="0.5" stop-color="#FFF6E8" stop-opacity="1"/>
+                    <stop offset="0.7" stop-color="#D8B98A" stop-opacity="1"/>
+                    <stop offset="1" stop-color="#D8B98A" stop-opacity="0"/>
+                </linearGradient>
+            </defs>
+        </svg>
         <p class="font-montserrat tracking-[0.2em] font-light text-sm opacity-90 uppercase text-pearl">¡Te espero para celebrar!</p>
     </footer>
 
@@ -569,18 +809,79 @@
             }
         };
 
-        // Escuchar el botón de "Abrir Invitación" para desbloquear audio y mostrar página
+        // -------------------------
+        // LÓGICA DE APERTURA DEL SOBRE DIGITAL
+        // -------------------------
         const welcomeScreen = document.getElementById('welcomeScreen');
         const btnOpen = document.getElementById('btnOpen');
+        const envelopeWrapper = document.getElementById('envelopeWrapper');
+        const envelopeFlap = document.getElementById('envelopeFlap');
+        const envelopeLetter = document.getElementById('envelopeLetter');
+        const waxSeal = document.getElementById('waxSeal');
+        const welcomeHeader = document.getElementById('welcomeHeader');
+        const openBtnContainer = document.getElementById('openBtnContainer');
         
-        btnOpen.addEventListener('click', () => {
-            // 1. Quitar el bloqueo de scroll
-            document.body.classList.remove('no-scroll');
-            // 2. Desvanecer la pantalla de bienvenida
-            welcomeScreen.classList.add('welcome-hidden');
-            // 3. Comenzar la música (con fade in de 50%)
-            playMusic();
-        });
+        let envelopeOpened = false;
+
+        const openInvitationFlow = () => {
+            if (envelopeOpened) return;
+            envelopeOpened = true;
+
+            // 1. Quitar el botón de abajo y el header para centrar la atención en el sobre
+            if (welcomeHeader) {
+                welcomeHeader.style.opacity = '0';
+                welcomeHeader.style.transform = 'translateY(-20px)';
+            }
+            if (openBtnContainer) {
+                openBtnContainer.style.opacity = '0';
+                openBtnContainer.style.transform = 'translateY(20px)';
+            }
+
+            // 2. Romper el sello de lacre
+            if (waxSeal) {
+                waxSeal.classList.add('broken');
+            }
+
+            // 3. Abrir la solapa superior (después de 400ms para permitir ver el lacre rompiéndose)
+            setTimeout(() => {
+                if (envelopeFlap) {
+                    envelopeFlap.classList.add('open');
+                }
+            }, 400);
+
+            // 4. Sacar la carta (después de 1000ms, cuando la solapa esté completamente abierta)
+            setTimeout(() => {
+                if (envelopeLetter) {
+                    envelopeLetter.classList.add('pull-out');
+                }
+            }, 1000);
+
+            // 5. Comenzar la música y cerrar la pantalla de bienvenida
+            setTimeout(() => {
+                // Quitar bloqueo de scroll
+                document.body.classList.remove('no-scroll');
+                // Desvanecer la pantalla de bienvenida
+                if (welcomeScreen) {
+                    welcomeScreen.classList.add('welcome-hidden');
+                }
+                // Reproducir audio con fade-in
+                playMusic();
+            }, 2500);
+        };
+
+        if (btnOpen) {
+            btnOpen.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openInvitationFlow();
+            });
+        }
+
+        if (envelopeWrapper) {
+            envelopeWrapper.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openInvitationFlow();
+            });
+        }
 
         // Fecha objetivo: 20 de Junio de 2026 a las 00:00:00
         const countDownDate = new Date("June 20, 2026 00:00:00").getTime();
@@ -612,7 +913,7 @@
         }, 1000);
 
         // -------------------------
-        // PARTÍCULAS DE BRILLO CHAMPAGNE DE FONDO
+        // INTERACTIVE CANVAS (Pétalos dorados flotando y destellos)
         // -------------------------
         const canvas = document.getElementById('particlesCanvas');
         const ctx = canvas.getContext('2d');
@@ -620,49 +921,58 @@
         let width = canvas.width = window.innerWidth;
         let height = canvas.height = window.innerHeight;
 
+        // Mouse coordinates tracker
+        const mouse = { x: -1000, y: -1000 };
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        window.addEventListener('mouseleave', () => {
+            mouse.x = -1000;
+            mouse.y = -1000;
+        });
+
         window.addEventListener('resize', () => {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
         });
 
         const particles = [];
-        const maxParticles = 40; // Cantidad sutil para no saturar
+        const maxSparkles = 25; // destellos ascendentes
+        const maxPetals = 20;   // pétalos descendentes
 
-        const particleColors = [
-            'rgba(247, 231, 206, 0.45)', // Champagne
-            'rgba(216, 185, 138, 0.35)', // Gold Soft
-            'rgba(255, 246, 232, 0.5)'   // Pearl
+        const sparkleColors = [
+            'rgba(247, 231, 206, 0.4)', // Champagne
+            'rgba(216, 185, 138, 0.3)', // Gold Soft
+            'rgba(255, 246, 232, 0.45)'  // Pearl
         ];
 
-        class Particle {
+        // Partículas ascendentes de destello
+        class Sparkle {
             constructor() {
                 this.reset();
-                this.y = Math.random() * height; // Distribución inicial vertical
+                this.y = Math.random() * height;
             }
 
             reset() {
                 this.x = Math.random() * width;
                 this.y = height + 10;
-                this.size = Math.random() * 2 + 0.5; // Partículas muy finas
-                this.speed = Math.random() * 0.35 + 0.15; // Flotación lenta
-                this.color = particleColors[Math.floor(Math.random() * particleColors.length)];
-                this.opacity = Math.random() * 0.5 + 0.2;
-                this.fadeSpeed = Math.random() * 0.008 + 0.002;
+                this.size = Math.random() * 1.8 + 0.4;
+                this.speed = Math.random() * 0.35 + 0.15;
+                this.color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
+                this.opacity = Math.random() * 0.4 + 0.15;
+                this.fadeSpeed = Math.random() * 0.006 + 0.002;
                 this.fadeDirection = Math.random() > 0.5 ? 1 : -1;
             }
 
             update() {
                 this.y -= this.speed;
-                
-                // Centelleo suave (twinkle)
                 this.opacity += this.fadeSpeed * this.fadeDirection;
-                if (this.opacity >= 0.75) {
-                    this.fadeDirection = -1;
-                } else if (this.opacity <= 0.15) {
-                    this.fadeDirection = 1;
-                }
+                if (this.opacity >= 0.6) this.fadeDirection = -1;
+                else if (this.opacity <= 0.1) this.fadeDirection = 1;
 
-                // Salirse de la pantalla
                 if (this.y < -10) {
                     this.reset();
                 }
@@ -676,12 +986,88 @@
             }
         }
 
-        // Inicializar partículas
-        for (let i = 0; i < maxParticles; i++) {
-            particles.push(new Particle());
+        // Hojas / Pétalos de oro descendentes
+        class Petal {
+            constructor() {
+                this.reset();
+                this.y = Math.random() * height;
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = -20;
+                this.size = Math.random() * 12 + 6; // tamaño del pétalo
+                this.w = this.size;
+                this.h = this.size * (Math.random() * 0.3 + 0.65); // proporción de la hoja
+                this.speedY = Math.random() * 0.7 + 0.3; // velocidad de caída lenta
+                this.speedX = Math.random() * 0.6 - 0.3; // balanceo horizontal
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotationSpeed = (Math.random() * 0.015 - 0.0075);
+                this.colorType = Math.random() > 0.55 ? 'oro' : 'champagne';
+                this.opacity = Math.random() * 0.45 + 0.25;
+                this.swingAngle = Math.random() * Math.PI;
+                this.swingSpeed = Math.random() * 0.015 + 0.005;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.swingAngle += this.swingSpeed;
+                this.x += this.speedX + Math.sin(this.swingAngle) * 0.4;
+                this.rotation += this.rotationSpeed;
+
+                // Interactividad física con el mouse
+                const dx = this.x - mouse.x;
+                const dy = this.y - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 100) {
+                    const force = (100 - dist) / 100;
+                    const angle = Math.atan2(dy, dx);
+                    this.x += Math.cos(angle) * force * 4;
+                    this.y += Math.sin(angle) * force * 4;
+                }
+
+                if (this.y > height + 20 || this.x < -20 || this.x > width + 20) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+
+                const grad = ctx.createLinearGradient(-this.w/2, -this.h/2, this.w/2, this.h/2);
+                if (this.colorType === 'oro') {
+                    grad.addColorStop(0, `rgba(216, 185, 138, ${this.opacity})`);
+                    grad.addColorStop(0.5, `rgba(255, 246, 232, ${this.opacity * 0.85})`);
+                    grad.addColorStop(1, `rgba(230, 210, 181, ${this.opacity * 0.7})`);
+                } else {
+                    grad.addColorStop(0, `rgba(247, 231, 206, ${this.opacity})`);
+                    grad.addColorStop(0.5, `rgba(216, 185, 138, ${this.opacity * 0.6})`);
+                    grad.addColorStop(1, `rgba(255, 246, 232, ${this.opacity * 0.95})`);
+                }
+
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                // Dibujar forma de pétalo orgánico (doble curva cuadrática)
+                ctx.moveTo(0, -this.h);
+                ctx.quadraticCurveTo(this.w * 0.8, 0, 0, this.h);
+                ctx.quadraticCurveTo(-this.w * 0.8, 0, 0, -this.h);
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            }
         }
 
-        // Bucle de animación
+        // Inicializar arrays de partículas
+        for (let i = 0; i < maxSparkles; i++) {
+            particles.push(new Sparkle());
+        }
+        for (let i = 0; i < maxPetals; i++) {
+            particles.push(new Petal());
+        }
+
+        // Loop principal de renderizado
         function animateParticles() {
             ctx.clearRect(0, 0, width, height);
             particles.forEach(p => {
@@ -692,6 +1078,64 @@
         }
 
         animateParticles();
+
+        // -------------------------
+        // LÓGICA DE EFECTO 3D TILT EN GLASS CARDS
+        // -------------------------
+        const cards = document.querySelectorAll('.glass-card');
+        
+        cards.forEach(card => {
+            // Capa interna para el brillo del cristal
+            const shine = document.createElement('div');
+            shine.className = 'card-shine';
+            card.appendChild(shine);
+
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const maxRotate = 7; // Grados máximos de rotación
+                const rotateX = ((centerY - y) / centerY) * maxRotate;
+                const rotateY = ((x - centerX) / centerX) * maxRotate;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+                card.style.transition = 'none';
+
+                // Posición dinámica del brillo radial
+                const percentageX = (x / rect.width) * 100;
+                const percentageY = (y / rect.height) * 100;
+                shine.style.background = `radial-gradient(circle at ${percentageX}% ${percentageY}%, rgba(255, 246, 232, 0.12) 0%, rgba(255, 255, 255, 0) 65%)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
+                card.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                shine.style.background = 'transparent';
+            });
+        });
+
+        // -------------------------
+        // OBSERVER PARA DIBUJAR SVG ORNAMENTALES AL SCROLL
+        // -------------------------
+        const svgObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const paths = entry.target.querySelectorAll('.draw-path');
+                    paths.forEach(path => {
+                        path.classList.add('animated');
+                    });
+                    svgObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.ornament-svg').forEach(svg => {
+            svgObserver.observe(svg);
+        });
     </script>
 </body>
 </html>
