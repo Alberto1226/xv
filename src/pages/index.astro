@@ -50,6 +50,16 @@
     </script>
 
     <style>
+        /* Hide number input spinners (increment/decrement arrows) */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0F0F0F; }
@@ -676,20 +686,80 @@
 
     <!-- WhatsApp RSVP Section -->
     <section class="py-24 px-6 relative" data-aos="fade-up">
-        <div class="max-w-3xl mx-auto glass-card p-10 md:p-16 rounded-3xl text-center border-t-4 border-t-oro/60">
-            <i class="fab fa-whatsapp text-5xl text-metallic-champagne sparkling-icon mb-6 animate-pulse"></i>
-            <h2 class="font-playfair text-3xl md:text-4xl text-metallic-champagne metallic-shine-anim mb-4">Confirmación de Asistencia</h2>
-            <p class="font-montserrat text-crema/80 mb-8 max-w-lg mx-auto leading-relaxed">
-                Por favor, da clic en el botón de abajo para enviarme un mensaje por WhatsApp y poder confirmar tu valiosa asistencia.
-            </p>
+        <div class="max-w-3xl mx-auto glass-card p-8 md:p-16 rounded-3xl border-t-4 border-t-oro/60">
+            <div class="text-center mb-8">
+                <i class="fab fa-whatsapp text-5xl text-metallic-champagne sparkling-icon mb-6 animate-pulse"></i>
+                <h2 class="font-playfair text-3xl md:text-4xl text-metallic-champagne metallic-shine-anim mb-4">Confirmación de Asistencia</h2>
+            </div>
             
-            <!-- Link a WhatsApp: Cambia el '1234567890' por el número real con código de país (ej. 521234567890) -->
-            <a href="https://wa.me/527731319479?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20años%20de%20Eloísa.%20🍾✨" 
-               target="_blank" 
-               class="inline-flex items-center justify-center gap-3 btn-whatsapp-luxury px-8 py-4 rounded-full font-bold tracking-wider hover:scale-105 active:scale-95 transition-transform duration-300 shadow-xl">
-                <i class="fab fa-whatsapp text-2xl"></i>
-                CONFIRMAR ASISTENCIA
-            </a>
+            <!-- Mensaje importante de la loza (Alerta Premium) -->
+            <div class="mb-10 p-6 bg-bronzeBg/60 border border-oro/30 rounded-2xl max-w-xl mx-auto text-left flex items-start gap-4 shadow-inner">
+                <i class="fas fa-utensils text-2xl text-oro mt-1 flex-shrink-0 animate-bounce"></i>
+                <div>
+                    <h4 class="font-montserrat font-bold text-oro uppercase tracking-wider text-xs mb-1">Nota Muy Importante</h4>
+                    <p class="font-montserrat text-crema/80 text-xs md:text-sm leading-relaxed">
+                        El servicio de banquetes y loza se reservará de manera exacta según las confirmaciones recibidas. Agradecemos confirmar tu asistencia y el número exacto de personas que te acompañarán para asegurar tu lugar.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Formulario interactivo RSVP -->
+            <form id="rsvpForm" class="max-w-xl mx-auto text-left space-y-8">
+                <!-- Nombre completo -->
+                <div class="space-y-2">
+                    <label for="rsvpName" class="block font-montserrat font-semibold uppercase tracking-wider text-xs text-oro/95">
+                        Nombre de quien confirma
+                    </label>
+                    <input type="text" id="rsvpName" name="name" required placeholder="Ej. Familia Martínez o Juan Pérez"
+                           class="w-full bg-darkBg/60 border border-oro/30 focus:border-oro rounded-xl px-4 py-3.5 text-crema placeholder-crema/40 font-montserrat text-sm outline-none transition-all duration-300 focus:ring-1 focus:ring-oro" />
+                </div>
+
+                <!-- Asistencia -->
+                <div class="space-y-2">
+                    <span class="block font-montserrat font-semibold uppercase tracking-wider text-xs text-oro/95">
+                        ¿Asistirá al evento?
+                    </span>
+                    <div class="grid grid-cols-2 gap-4">
+                        <label class="cursor-pointer flex flex-col">
+                            <input type="radio" name="attendance" value="si" checked class="sr-only peer" id="attendanceYes" />
+                            <div class="flex-1 flex items-center justify-center gap-2 bg-darkBg/40 border border-oro/20 hover:border-oro/60 peer-checked:border-oro peer-checked:bg-oro/10 rounded-xl py-3.5 px-4 transition-all duration-300 text-center h-full">
+                                <i class="fas fa-check text-xs text-oro"></i>
+                                <span class="font-montserrat text-sm font-medium text-crema">Sí, asistiré</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer flex flex-col">
+                            <input type="radio" name="attendance" value="no" class="sr-only peer" id="attendanceNo" />
+                            <div class="flex-1 flex items-center justify-center gap-2 bg-darkBg/40 border border-oro/20 hover:border-oro/60 peer-checked:border-oro peer-checked:bg-oro/10 rounded-xl py-3.5 px-4 transition-all duration-300 text-center h-full">
+                                <i class="fas fa-times text-xs text-oro/60"></i>
+                                <span class="font-montserrat text-sm font-medium text-crema/70">No podré asistir</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Número de acompañantes -->
+                <div id="companionsContainer" class="transition-all duration-500 max-h-[300px] overflow-hidden opacity-100 space-y-2 text-center flex flex-col items-center">
+                    <label for="rsvpCompanions" class="block font-montserrat font-semibold uppercase tracking-wider text-xs text-oro/95">
+                        Número total de asistentes (Incluyéndote)
+                    </label>
+                    <div class="flex items-center justify-center gap-3">
+                        <button type="button" id="btnMinus" class="w-12 h-12 rounded-xl bg-darkBg/60 border border-oro/30 hover:border-oro text-crema text-lg flex items-center justify-center transition-colors duration-300 focus:outline-none select-none">-</button>
+                        <input type="number" id="rsvpCompanions" name="companions" min="1" max="15" value="1" readonly
+                               class="w-16 h-12 bg-darkBg/60 border border-oro/30 text-center rounded-xl text-crema font-montserrat font-bold text-lg focus:outline-none" />
+                        <button type="button" id="btnPlus" class="w-12 h-12 rounded-xl bg-darkBg/60 border border-oro/30 hover:border-oro text-crema text-lg flex items-center justify-center transition-colors duration-300 focus:outline-none select-none">+</button>
+                    </div>
+                    <p class="text-xs text-oro/70 italic mt-2">*(Por favor, indícanos cuántas personas contempladas en tu invitación asistirán)*</p>
+                </div>
+
+                <!-- Botón de Envío -->
+                <div class="pt-4 text-center">
+                    <button type="submit" id="btnSubmitRsvp"
+                            class="w-full inline-flex items-center justify-center gap-3 btn-whatsapp-luxury px-8 py-4 rounded-full font-bold tracking-wider hover:scale-105 active:scale-95 transition-transform duration-300 shadow-xl cursor-pointer">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                        ENVIAR CONFIRMACIÓN
+                    </button>
+                </div>
+            </form>
         </div>
     </section>
 
@@ -1136,6 +1206,86 @@
         document.querySelectorAll('.ornament-svg').forEach(svg => {
             svgObserver.observe(svg);
         });
+
+        // -------------------------
+        // LÓGICA DE FORMULARIO RSVP
+        // -------------------------
+        const rsvpForm = document.getElementById('rsvpForm');
+        const rsvpName = document.getElementById('rsvpName');
+        const attendanceYes = document.getElementById('attendanceYes');
+        const attendanceNo = document.getElementById('attendanceNo');
+        const companionsContainer = document.getElementById('companionsContainer');
+        const rsvpCompanions = document.getElementById('rsvpCompanions');
+        const btnMinus = document.getElementById('btnMinus');
+        const btnPlus = document.getElementById('btnPlus');
+
+        if (rsvpForm) {
+            // Manejar el selector de asistencia (Sí / No)
+            attendanceYes.addEventListener('change', () => {
+                if (attendanceYes.checked) {
+                    companionsContainer.style.maxHeight = '300px';
+                    companionsContainer.style.opacity = '1';
+                    companionsContainer.style.pointerEvents = 'auto';
+                    rsvpCompanions.value = "1";
+                }
+            });
+
+            attendanceNo.addEventListener('change', () => {
+                if (attendanceNo.checked) {
+                    companionsContainer.style.maxHeight = '0';
+                    companionsContainer.style.opacity = '0';
+                    companionsContainer.style.pointerEvents = 'none';
+                    rsvpCompanions.value = "0";
+                }
+            });
+
+            // Controles de cantidad de acompañantes
+            btnMinus.addEventListener('click', () => {
+                let current = parseInt(rsvpCompanions.value) || 1;
+                if (current > 1) {
+                    rsvpCompanions.value = (current - 1).toString();
+                }
+            });
+
+            btnPlus.addEventListener('click', () => {
+                let current = parseInt(rsvpCompanions.value) || 1;
+                if (current < 15) { // Límite de 15 personas
+                    rsvpCompanions.value = (current + 1).toString();
+                }
+            });
+
+            // Envío del RSVP por WhatsApp
+            rsvpForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const nameValue = rsvpName.value.trim();
+                const attends = attendanceYes.checked;
+                const companionsValue = rsvpCompanions.value;
+                
+                if (!nameValue) {
+                    alert('Por favor, ingresa tu nombre para confirmar.');
+                    return;
+                }
+
+                let message = '';
+                if (attends) {
+                    message = `¡Hola! Confirmo mi asistencia a los XV años de Eloísa. 🍾✨\n\n` +
+                              `• Nombre: *${nameValue}*\n` +
+                              `• Asistentes: *${companionsValue} persona(s)*\n\n` +
+                              `¡Nos vemos pronto para celebrar!`;
+                } else {
+                    message = `¡Hola! Agradezco mucho la invitación a los XV años de Eloísa. ✨\n\n` +
+                              `• Nombre: *${nameValue}*\n` +
+                              `• Asistencia: *Lamentablemente no podré asistir.*\n\n` +
+                              `Les deseo una fiesta maravillosa y lo mejor en este gran día.`;
+                }
+
+                const encodedText = encodeURIComponent(message);
+                const whatsappUrl = `https://wa.me/527731319479?text=${encodedText}`;
+                
+                window.open(whatsappUrl, '_blank');
+            });
+        }
     </script>
 </body>
 </html>
