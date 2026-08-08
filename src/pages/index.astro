@@ -450,7 +450,7 @@
                 <div class="envelope-pocket"></div>
                 <!-- Carta dentro del sobre -->
                 <div id="envelopeLetter" class="envelope-letter">
-                    <p class="font-montserrat text-[10px] tracking-[0.2em] uppercase text-pearl/80 text-center">Te invita a celebrar los</p>
+                    <p class="font-montserrat text-[10px] tracking-[0.2em] uppercase text-pearl/80 text-center">Gracias por celebrar los</p>
                     <p class="font-playfair text-xs tracking-[0.3em] text-oro mt-1 font-bold">XV AÑOS DE</p>
                     <p class="font-script text-4xl text-metallic-champagne mt-2 sparkling-icon">Eloísa</p>
                 </div>
@@ -460,7 +460,7 @@
 
             <div id="openBtnContainer" class="w-full flex justify-center items-center mt-2 shrink-0 transition-all duration-700" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="800">
                 <button id="btnOpen" class="flex items-center justify-center gap-3 px-8 md:px-12 btn-metallic py-4 rounded-full font-semibold tracking-widest uppercase text-xs md:text-sm shadow-xl active:scale-95 transition-transform duration-300">
-                    <i class="fas fa-envelope-open text-lg"></i> Abrir Invitación
+                    <i class="fas fa-heart text-lg"></i> Abrir Mensaje
                 </button>
             </div>
         </div>
@@ -482,7 +482,7 @@
         <!-- iOS Fix para imagen de fondo (bypass de background-attachment: fixed) -->
         <div class="absolute inset-0 w-full h-full -z-20 pointer-events-none overflow-hidden">
             <!-- Utilizamos fixed sobre la imagen directamente para simular el parallax sin romper Webkit iOS -->
-            <img src="assets/img/15.png" alt="Alejandra 15" class="w-full h-full object-cover object-center sm:fixed sm:inset-0 opacity-45 animate-kenburns">
+            <img src="assets/img/15.png" alt="Eloísa 15" class="w-full h-full object-cover object-center sm:fixed sm:inset-0 opacity-45 animate-kenburns">
         </div>
         
         <!-- Gradientes para asegurar lectura del texto -->
@@ -490,7 +490,7 @@
         <div class="absolute inset-0 bg-radial-luxury -z-10 pointer-events-none"></div>
         
         <div class="relative z-10 flex flex-col items-center mt-auto mb-auto">
-            <p class="font-playfair tracking-[0.35em] uppercase text-sm md:text-lg mb-6 text-metallic-champagne metallic-shine-anim font-semibold drop-shadow-md" data-aos="fade-down" data-aos-duration="1600" data-aos-delay="100" style="display: block;">Mis XV Años</p>
+            <p class="font-playfair tracking-[0.35em] uppercase text-sm md:text-lg mb-6 text-metallic-champagne metallic-shine-anim font-semibold drop-shadow-md" data-aos="fade-down" data-aos-duration="1600" data-aos-delay="100" style="display: block;">¡Gracias por Asistir!</p>
             <h1 class="font-script text-7xl md:text-9xl mb-4 font-normal tracking-wide text-metallic-champagne metallic-shine-anim glow-champagne py-4 drop-shadow-lg" data-aos="zoom-in" data-aos-duration="1800" data-aos-delay="300" style="display: block;">Eloísa</h1>
             <!-- Divisor Ornamental SVG en Hero -->
             <div class="w-full max-w-[200px]" data-aos="zoom-in" data-aos-duration="1400" data-aos-delay="500">
@@ -507,7 +507,7 @@
                     </defs>
                 </svg>
             </div>
-            <p class="font-montserrat tracking-[0.2em] font-light text-base md:text-xl uppercase text-pearl/90 drop-shadow-md" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="650">20 de Junio de 2026</p>
+            <p class="font-montserrat tracking-[0.2em] font-light text-base md:text-xl uppercase text-pearl/90 drop-shadow-md text-center max-w-xl" data-aos="fade-up" data-aos-duration="1600" data-aos-delay="650">Gracias por acompañarme en este día tan especial</p>
         </div>
         
         <div class="absolute bottom-10 z-10 animate-bounce">
@@ -515,55 +515,31 @@
         </div>
     </header>
 
-    <!-- Narrative Section -->
+    <!-- Frase Emotiva -->
     <section class="py-24 px-6 md:px-20 text-center max-w-4xl mx-auto" data-aos="fade-up">
-        <i class="fas fa-leaf text-metallic-champagne sparkling-icon text-3xl mb-8"></i>
-        <p class="font-playfair italic text-2xl md:text-3xl text-crema/90 leading-relaxed font-light">
-            "Hace quince años la vida nos regaló el don de ver nacer a una hermosa niña... <br class="hidden md:block">
-            Hoy, con el corazón lleno de gratitud, celebramos con inmensa alegría los XV años y los sueños de Eloísa."
+        <i class="fas fa-quote-left text-metallic-champagne sparkling-icon text-4xl mb-6"></i>
+        <p class="font-playfair italic text-2xl md:text-3xl text-crema/90 leading-relaxed font-light mb-6">
+            "Hay momentos en la vida que son inolvidables, pero compartirlos con las personas que más queremos los hace eternos. Gracias por ser parte de mi historia y por haberme acompañado en un día tan especial."
+        </p>
+        <p class="font-montserrat text-sm tracking-[0.25em] text-oro uppercase font-semibold">
+            — Mis XV Años —
         </p>
     </section>
 
-    <!-- Countdown Section -->
-    <section class="py-16 bg-bronzeBg/40 relative border-y border-oro/10" data-aos="fade-up">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="font-playfair text-3xl md:text-4xl text-center text-metallic-champagne metallic-shine-anim mb-12">Faltan</h2>
-            
-            <div class="flex flex-wrap justify-center gap-4 md:gap-8">
-                <!-- Days -->
-                <div class="flex flex-col items-center justify-center glass-card w-20 h-24 md:w-32 md:h-32 rounded-2xl" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1200">
-                    <span id="days" class="font-playfair font-bold text-3xl md:text-5xl countdown-number">00</span>
-                    <span class="text-xs md:text-sm font-medium tracking-widest uppercase text-pearl/60 mt-2">Días</span>
-                </div>
-                <!-- Hours -->
-                <div class="flex flex-col items-center justify-center glass-card w-20 h-24 md:w-32 md:h-32 rounded-2xl" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1200">
-                    <span id="hours" class="font-playfair font-bold text-3xl md:text-5xl countdown-number">00</span>
-                    <span class="text-xs md:text-sm font-medium tracking-widest uppercase text-pearl/60 mt-2">Hrs</span>
-                </div>
-                <!-- Minutes -->
-                <div class="flex flex-col items-center justify-center glass-card w-20 h-24 md:w-32 md:h-32 rounded-2xl" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">
-                    <span id="minutes" class="font-playfair font-bold text-3xl md:text-5xl countdown-number">00</span>
-                    <span class="text-xs md:text-sm font-medium tracking-widest uppercase text-pearl/60 mt-2">Min</span>
-                </div>
-                <!-- Seconds -->
-                <div class="flex flex-col items-center justify-center glass-card w-20 h-24 md:w-32 md:h-32 rounded-2xl" data-aos="fade-up" data-aos-delay="450" data-aos-duration="1200">
-                    <span id="seconds" class="font-playfair font-bold text-3xl md:text-5xl countdown-number">00</span>
-                    <span class="text-xs md:text-sm font-medium tracking-widest uppercase text-pearl/60 mt-2">Seg</span>
-                </div>
+    <!-- Mensaje de Agradecimiento Principal de Eloísa -->
+    <section class="py-16 px-6 max-w-4xl mx-auto" data-aos="fade-up">
+        <div class="glass-card p-8 md:p-14 rounded-3xl text-center border-t-4 border-t-oro/60 shadow-2xl relative overflow-hidden">
+            <div class="w-20 h-20 rounded-full bg-darkBg border border-oro/30 flex items-center justify-center mx-auto mb-6 shadow-md">
+                <i class="fas fa-heart text-3xl text-metallic-champagne sparkling-icon"></i>
             </div>
-        </div>
-    </section>
-
-    <!-- Family Section -->
-    <section class="py-24 px-6 max-w-5xl mx-auto" data-aos="fade-up">
-        <div class="text-center mb-16">
-            <i class="fas fa-hands-holding-circle text-metallic-champagne sparkling-icon text-4xl mb-6"></i>
-            <h2 class="font-playfair text-3xl md:text-4xl text-metallic-champagne metallic-shine-anim mb-4">Con la bendición de Dios y mis padres</h2>
-            <!-- Divisor Ornamental SVG en Sección Familia -->
-            <svg class="ornament-svg mx-auto my-4" width="200" height="24" viewBox="0 0 200 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path class="draw-path" d="M10 12 H90 M190 12 H110 M100 4 L104 12 L100 20 L96 12 Z M75 12 C80 6, 90 6, 95 12 M125 12 C120 6, 110 6, 105 12" stroke="url(#goldGradientFamily)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            
+            <h2 class="font-playfair text-3xl md:text-5xl text-metallic-champagne metallic-shine-anim mb-6">Con Inmensa Gratitud</h2>
+            
+            <!-- Divisor Ornamental SVG -->
+            <svg class="ornament-svg mx-auto my-6" width="200" height="24" viewBox="0 0 200 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="draw-path" d="M10 12 H90 M190 12 H110 M100 4 L104 12 L100 20 L96 12 Z M75 12 C80 6, 90 6, 95 12 M125 12 C120 6, 110 6, 105 12" stroke="url(#goldGradientThanks)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <defs>
-                    <linearGradient id="goldGradientFamily" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+                    <linearGradient id="goldGradientThanks" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
                         <stop offset="0" stop-color="#D8B98A" stop-opacity="0"/>
                         <stop offset="0.3" stop-color="#D8B98A" stop-opacity="1"/>
                         <stop offset="0.5" stop-color="#FFF6E8" stop-opacity="1"/>
@@ -572,194 +548,14 @@
                     </linearGradient>
                 </defs>
             </svg>
-        </div>
 
-        <div class="grid md:grid-cols-2 gap-12 text-center">
-            <!-- Padres -->
-            <div class="glass-card p-10 rounded-3xl" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1400">
-                <h3 class="font-montserrat tracking-[0.2em] text-sm uppercase text-metallic-champagne metallic-shine-anim font-bold mb-6">Mis Padres</h3>
-                <p class="font-playfair text-2xl text-pearl mb-2">Iván Bostho Nogal</p>
-                <p class="font-playfair text-2xl text-pearl">Martha Lilia Trejo Juárez</p>
-            </div>
-            
-            <!-- Padrinos -->
-            <div class="glass-card p-10 rounded-3xl" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1400">
-                <h3 class="font-montserrat tracking-[0.2em] text-sm uppercase text-metallic-champagne metallic-shine-anim font-bold mb-6">Mis Padrinos</h3>
-                <p class="font-playfair text-2xl text-pearl mb-2">Vicente Salinas Hernández</p>
-                <p class="font-playfair text-2xl text-pearl">María Guadalupe Prior Ibarra</p>
-            </div>
-        </div>
-    </section>
+            <p class="font-montserrat text-base md:text-xl text-crema/90 leading-relaxed font-light max-w-2xl mx-auto mb-8">
+                A todos mis familiares y amigos, infinitas gracias por haberme acompañado en la celebración de mis XV años. Sus sonrisas, abrazos, bendiciones y muestras de cariño hicieron de este día un recuerdo maravilloso que guardaré para siempre en mi corazón.
+            </p>
 
-    <!-- Logistics Section -->
-    <section class="py-24 px-6 bg-bronzeBg/40 border-y border-oro/10">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="font-playfair text-3xl md:text-4xl text-metallic-champagne metallic-shine-anim mb-4">Dónde y Cuándo</h2>
-                <!-- Divisor Ornamental SVG en Sección Logística -->
-                <svg class="ornament-svg mx-auto my-4" width="200" height="24" viewBox="0 0 200 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path class="draw-path" d="M10 12 H90 M190 12 H110 M100 4 L104 12 L100 20 L96 12 Z M75 12 C80 6, 90 6, 95 12 M125 12 C120 6, 110 6, 105 12" stroke="url(#goldGradientLogistics)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <defs>
-                        <linearGradient id="goldGradientLogistics" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
-                            <stop offset="0" stop-color="#D8B98A" stop-opacity="0"/>
-                            <stop offset="0.3" stop-color="#D8B98A" stop-opacity="1"/>
-                            <stop offset="0.5" stop-color="#FFF6E8" stop-opacity="1"/>
-                            <stop offset="0.7" stop-color="#D8B98A" stop-opacity="1"/>
-                            <stop offset="1" stop-color="#D8B98A" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-10">
-                <!-- Ceremonia -->
-                <div class="glass-card p-10 rounded-3xl text-center flex flex-col items-center justify-between shadow-2xl" data-aos="fade-right">
-                    <div class="w-20 h-20 rounded-full bg-darkBg border border-oro/30 flex items-center justify-center mb-6 shadow-md">
-                        <i class="fas fa-church text-3xl text-metallic-champagne sparkling-icon"></i>
-                    </div>
-                    <h3 class="font-playfair text-3xl text-pearl mb-2">Ceremonia Religiosa</h3>
-                    <p class="font-montserrat font-bold text-metallic-champagne metallic-shine-anim tracking-wider mb-4 text-lg">4:00 p.m.</p>
-                    <p class="text-crema/80 mb-8 leading-relaxed">
-                        Parroquia Santiago Apóstol
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-3 w-full mt-auto">
-                        <a href="https://maps.app.goo.gl/vc7M43dbE8d1qybY8" target="_blank" class="flex-1 btn-metallic py-3 rounded-xl flex items-center justify-center gap-2 font-semibold tracking-wider uppercase text-xs">
-                            <i class="fas fa-map-marker-alt text-base"></i> Google Maps
-                        </a>
-                        <a href="https://waze.com/ul?q=Parroquia+Santiago+Apostol+San+Juan+del+Rio&navigate=yes" target="_blank" class="flex-1 btn-metallic py-3 rounded-xl flex items-center justify-center gap-2 font-semibold tracking-wider uppercase text-xs">
-                            <i class="fab fa-waze text-base"></i> Waze
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Recepcion -->
-                <div class="glass-card p-10 rounded-3xl text-center flex flex-col items-center justify-between shadow-2xl" data-aos="fade-left">
-                    <div class="w-20 h-20 rounded-full bg-darkBg border border-oro/30 flex items-center justify-center mb-6 shadow-md">
-                        <i class="fas fa-glass-cheers text-3xl text-metallic-champagne sparkling-icon"></i>
-                    </div>
-                    <h3 class="font-playfair text-3xl text-pearl mb-2">Recepción</h3>
-                    <p class="font-montserrat font-bold text-metallic-champagne metallic-shine-anim tracking-wider mb-4 text-lg">6:00 p.m.</p>
-                    <p class="text-crema/80 mb-8 leading-relaxed">
-                        Salón Real Ilusión
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-3 w-full mt-auto">
-                        <a href="https://maps.app.goo.gl/LqSAzNoM32YRoPNh9" target="_blank" class="flex-1 btn-metallic py-3 rounded-xl flex items-center justify-center gap-2 font-semibold tracking-wider uppercase text-xs">
-                            <i class="fas fa-map-marker-alt text-base"></i> Google Maps
-                        </a>
-                        <a href="https://waze.com/ul?q=Salon+Real+Ilusion+San+Juan+del+Rio&navigate=yes" target="_blank" class="flex-1 btn-metallic py-3 rounded-xl flex items-center justify-center gap-2 font-semibold tracking-wider uppercase text-xs">
-                            <i class="fab fa-waze text-base"></i> Waze
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Extra Info Section -->
-    <section class="py-24 px-6 max-w-4xl mx-auto text-center" data-aos="fade-up">
-        <h2 class="font-playfair text-3xl md:text-4xl text-metallic-champagne metallic-shine-anim mb-12">Detalles Importantes</h2>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Dresscode -->
-            <div class="flex flex-col items-center glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1300">
-                <i class="fas fa-user-tie text-3xl text-metallic-champagne sparkling-icon mb-4"></i>
-                <h4 class="font-montserrat font-bold uppercase tracking-wider text-sm mb-2 text-pearl">Código de Vestimenta</h4>
-                <p class="text-crema/90 font-medium">Formal</p>
-                <p class="text-xs text-oro/80 italic text-center mt-2 leading-relaxed max-w-[200px]">*(Agradecemos evitar el color champagne rosa, reservado para la quinceañera)*</p>
-            </div>
-            
-            <!-- Niños -->
-            <div class="flex flex-col items-center glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1300">
-                <i class="fas fa-child text-3xl text-metallic-champagne sparkling-icon mb-4"></i>
-                <h4 class="font-montserrat font-bold uppercase tracking-wider text-sm mb-2 text-pearl">Niños</h4>
-                <p class="text-crema/70">Sí permitidos</p>
-            </div>
-            
-            <!-- Regalo -->
-            <div class="flex flex-col items-center glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1300">
-                <i class="fas fa-envelope-open-text text-3xl text-metallic-champagne sparkling-icon mb-4"></i>
-                <h4 class="font-montserrat font-bold uppercase tracking-wider text-sm mb-2 text-pearl">Lluvia de Sobres</h4>
-                <p class="text-crema/70 text-sm">El mejor regalo es tu presencia, pero si deseas tener un detalle conmigo, habrá un buzón en la recepción.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- WhatsApp RSVP Section -->
-    <section class="py-24 px-6 relative" data-aos="fade-up">
-        <div class="max-w-3xl mx-auto glass-card p-8 md:p-16 rounded-3xl border-t-4 border-t-oro/60">
-            <div class="text-center mb-8">
-                <i class="fab fa-whatsapp text-5xl text-metallic-champagne sparkling-icon mb-6 animate-pulse"></i>
-                <h2 class="font-playfair text-3xl md:text-4xl text-metallic-champagne metallic-shine-anim mb-4">Confirmación de Asistencia</h2>
-            </div>
-            
-            <!-- Mensaje importante de la loza (Alerta Premium) -->
-            <div class="mb-10 p-6 bg-bronzeBg/60 border border-oro/30 rounded-2xl max-w-xl mx-auto text-left flex items-start gap-4 shadow-inner">
-                <i class="fas fa-utensils text-2xl text-oro mt-1 flex-shrink-0 animate-bounce"></i>
-                <div>
-                    <h4 class="font-montserrat font-bold text-oro uppercase tracking-wider text-xs mb-1">Nota Muy Importante</h4>
-                    <p class="font-montserrat text-crema/80 text-xs md:text-sm leading-relaxed">
-                        El servicio de banquetes y loza se reservará de manera exacta según las confirmaciones recibidas. Agradecemos confirmar tu asistencia y el número exacto de personas que te acompañarán para asegurar tu lugar.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Formulario interactivo RSVP -->
-            <form id="rsvpForm" class="max-w-xl mx-auto text-left space-y-8">
-                <!-- Nombre completo -->
-                <div class="space-y-2">
-                    <label for="rsvpName" class="block font-montserrat font-semibold uppercase tracking-wider text-xs text-oro/95">
-                        Nombre de quien confirma
-                    </label>
-                    <input type="text" id="rsvpName" name="name" required placeholder="Ej. Familia Martínez o Juan Pérez"
-                           class="w-full bg-darkBg/60 border border-oro/30 focus:border-oro rounded-xl px-4 py-3.5 text-crema placeholder-crema/40 font-montserrat text-sm outline-none transition-all duration-300 focus:ring-1 focus:ring-oro" />
-                </div>
-
-                <!-- Asistencia -->
-                <div class="space-y-2">
-                    <span class="block font-montserrat font-semibold uppercase tracking-wider text-xs text-oro/95">
-                        ¿Asistirá al evento?
-                    </span>
-                    <div class="grid grid-cols-2 gap-4">
-                        <label class="cursor-pointer flex flex-col">
-                            <input type="radio" name="attendance" value="si" checked class="sr-only peer" id="attendanceYes" />
-                            <div class="flex-1 flex items-center justify-center gap-2 bg-darkBg/40 border border-oro/20 hover:border-oro/60 peer-checked:border-oro peer-checked:bg-oro/10 rounded-xl py-3.5 px-4 transition-all duration-300 text-center h-full">
-                                <i class="fas fa-check text-xs text-oro"></i>
-                                <span class="font-montserrat text-sm font-medium text-crema">Sí, asistiré</span>
-                            </div>
-                        </label>
-                        <label class="cursor-pointer flex flex-col">
-                            <input type="radio" name="attendance" value="no" class="sr-only peer" id="attendanceNo" />
-                            <div class="flex-1 flex items-center justify-center gap-2 bg-darkBg/40 border border-oro/20 hover:border-oro/60 peer-checked:border-oro peer-checked:bg-oro/10 rounded-xl py-3.5 px-4 transition-all duration-300 text-center h-full">
-                                <i class="fas fa-times text-xs text-oro/60"></i>
-                                <span class="font-montserrat text-sm font-medium text-crema/70">No podré asistir</span>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Número de acompañantes -->
-                <div id="companionsContainer" class="transition-all duration-500 max-h-[300px] overflow-hidden opacity-100 space-y-2 text-center flex flex-col items-center">
-                    <label for="rsvpCompanions" class="block font-montserrat font-semibold uppercase tracking-wider text-xs text-oro/95">
-                        Número total de asistentes (Incluyéndote)
-                    </label>
-                    <div class="flex items-center justify-center gap-3">
-                        <button type="button" id="btnMinus" class="w-12 h-12 rounded-xl bg-darkBg/60 border border-oro/30 hover:border-oro text-crema text-lg flex items-center justify-center transition-colors duration-300 focus:outline-none select-none touch-manipulation">-</button>
-                        <input type="number" id="rsvpCompanions" name="companions" min="1" max="15" value="1" readonly
-                               class="w-16 h-12 bg-darkBg/60 border border-oro/30 text-center rounded-xl text-crema font-montserrat font-bold text-lg focus:outline-none" />
-                        <button type="button" id="btnPlus" class="w-12 h-12 rounded-xl bg-darkBg/60 border border-oro/30 hover:border-oro text-crema text-lg flex items-center justify-center transition-colors duration-300 focus:outline-none select-none touch-manipulation">+</button>
-                    </div>
-                    <p class="text-xs text-oro/70 italic mt-2">*(Por favor, indícanos cuántas personas contempladas en tu invitación asistirán)*</p>
-                </div>
-
-                <!-- Botón de Envío -->
-                <div class="pt-4 text-center">
-                    <button type="submit" id="btnSubmitRsvp"
-                            class="w-full inline-flex items-center justify-center gap-3 btn-whatsapp-luxury px-8 py-4 rounded-full font-bold tracking-wider hover:scale-105 active:scale-95 transition-transform duration-300 shadow-xl cursor-pointer">
-                        <i class="fab fa-whatsapp text-2xl"></i>
-                        ENVIAR CONFIRMACIÓN
-                    </button>
-                </div>
-            </form>
+            <p class="font-script text-4xl md:text-6xl text-metallic-champagne metallic-shine-anim py-4 glow-champagne">
+                ¡Gracias por hacer este día inolvidable!
+            </p>
         </div>
     </section>
 
@@ -779,7 +575,7 @@
                 </linearGradient>
             </defs>
         </svg>
-        <p class="font-montserrat tracking-[0.2em] font-light text-sm opacity-90 uppercase text-pearl">¡Te espero para celebrar!</p>
+        <p class="font-montserrat tracking-[0.2em] font-light text-sm opacity-90 uppercase text-pearl">¡Gracias por tu compañía, cariño y bendiciones!</p>
     </footer>
 
     <!-- AOS Animation JS -->
@@ -952,35 +748,6 @@
                 openInvitationFlow();
             });
         }
-
-        // Fecha objetivo: 20 de Junio de 2026 a las 00:00:00
-        const countDownDate = new Date("June 20, 2026 00:00:00").getTime();
-
-        const x = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = countDownDate - now;
-
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("days").innerHTML = "00";
-                document.getElementById("hours").innerHTML = "00";
-                document.getElementById("minutes").innerHTML = "00";
-                document.getElementById("seconds").innerHTML = "00";
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Formatear a 2 dígitos
-            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
-            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
-            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
-
-        }, 1000);
 
         // -------------------------
         // INTERACTIVE CANVAS (Pétalos dorados flotando y destellos)
@@ -1206,86 +973,6 @@
         document.querySelectorAll('.ornament-svg').forEach(svg => {
             svgObserver.observe(svg);
         });
-
-        // -------------------------
-        // LÓGICA DE FORMULARIO RSVP
-        // -------------------------
-        const rsvpForm = document.getElementById('rsvpForm');
-        const rsvpName = document.getElementById('rsvpName');
-        const attendanceYes = document.getElementById('attendanceYes');
-        const attendanceNo = document.getElementById('attendanceNo');
-        const companionsContainer = document.getElementById('companionsContainer');
-        const rsvpCompanions = document.getElementById('rsvpCompanions');
-        const btnMinus = document.getElementById('btnMinus');
-        const btnPlus = document.getElementById('btnPlus');
-
-        if (rsvpForm) {
-            // Manejar el selector de asistencia (Sí / No)
-            attendanceYes.addEventListener('change', () => {
-                if (attendanceYes.checked) {
-                    companionsContainer.style.maxHeight = '300px';
-                    companionsContainer.style.opacity = '1';
-                    companionsContainer.style.pointerEvents = 'auto';
-                    rsvpCompanions.value = "1";
-                }
-            });
-
-            attendanceNo.addEventListener('change', () => {
-                if (attendanceNo.checked) {
-                    companionsContainer.style.maxHeight = '0';
-                    companionsContainer.style.opacity = '0';
-                    companionsContainer.style.pointerEvents = 'none';
-                    rsvpCompanions.value = "0";
-                }
-            });
-
-            // Controles de cantidad de acompañantes
-            btnMinus.addEventListener('click', () => {
-                let current = parseInt(rsvpCompanions.value) || 1;
-                if (current > 1) {
-                    rsvpCompanions.value = (current - 1).toString();
-                }
-            });
-
-            btnPlus.addEventListener('click', () => {
-                let current = parseInt(rsvpCompanions.value) || 1;
-                if (current < 15) { // Límite de 15 personas
-                    rsvpCompanions.value = (current + 1).toString();
-                }
-            });
-
-            // Envío del RSVP por WhatsApp
-            rsvpForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                const nameValue = rsvpName.value.trim();
-                const attends = attendanceYes.checked;
-                const companionsValue = rsvpCompanions.value;
-                
-                if (!nameValue) {
-                    alert('Por favor, ingresa tu nombre para confirmar.');
-                    return;
-                }
-
-                let message = '';
-                if (attends) {
-                    message = `¡Hola! Confirmo mi asistencia a los XV años de Eloísa. 🍾✨\n\n` +
-                              `• Nombre: *${nameValue}*\n` +
-                              `• Asistentes: *${companionsValue} persona(s)*\n\n` +
-                              `¡Nos vemos pronto para celebrar!`;
-                } else {
-                    message = `¡Hola! Agradezco mucho la invitación a los XV años de Eloísa. ✨\n\n` +
-                              `• Nombre: *${nameValue}*\n` +
-                              `• Asistencia: *Lamentablemente no podré asistir.*\n\n` +
-                              `Les deseo una fiesta maravillosa y lo mejor en este gran día.`;
-                }
-
-                const encodedText = encodeURIComponent(message);
-                const whatsappUrl = `https://wa.me/527731319479?text=${encodedText}`;
-                
-                window.open(whatsappUrl, '_blank');
-            });
-        }
     </script>
 </body>
 </html>
